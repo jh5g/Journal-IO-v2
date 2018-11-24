@@ -5,16 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journal_IO_v2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_1_Loaded" Closing="Window_1_Closing">
+        Title="MainWindow" Height="635.551" Width="1024.615" Loaded="Window_1_Loaded" Closing="Window_1_Closing">
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding SaveCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="O" Command="{Binding OpenCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NewCommand}"/>
+        <KeyBinding Modifiers="Ctrl+Shift" Key="S" Command="{Binding SaveAsCommand}"/>
+    </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="46*"/>
             <ColumnDefinition Width="351*"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="dateEntry" HorizontalAlignment="Left" Height="23" Margin="10,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="NewEntryBox" HorizontalAlignment="Left" Height="181" Margin="43,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="606" TextChanged="NewEntryBox_TextChanged" Grid.Column="1"/>
-        <TextBox x:Name="Output" HorizontalAlignment="Left" Height="158" TextWrapping="Wrap" VerticalAlignment="Top" Width="587" Margin="62,228,0,0" Grid.Column="1"/>
+        <TextBox x:Name="NewEntryBox" HorizontalAlignment="Left" Height="230" Margin="43,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="818" TextChanged="NewEntryBox_TextChanged" Grid.Column="1" SpellCheck.IsEnabled="True"/>
+        <TextBox x:Name="Output" HorizontalAlignment="Left" Height="331" TextWrapping="Wrap" VerticalAlignment="Top" Width="818" Margin="43,265,0,0" Grid.Column="1" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
         <Button x:Name="AddEntry" Content="Add" HorizontalAlignment="Left" Margin="55,59,0,0" VerticalAlignment="Top" Width="75" Click="AddEntry_Click" Grid.ColumnSpan="2"/>
+        <ToolBar HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="53" Header="File">
+            <Button x:Name="SaveButton" Content="Save (Control + S)" Command="{Binding SaveCommand}" Click="SaveButton_Click"/>
+            <Button x:Name="SaveAsButton" Content="Save As (Control + Shift + S)" Command="{Binding SaveAsCommand}" Click="SaveAsButton_Click"/>
+            <Button x:Name="OpenButton" Content="Open (Control + O)" Command="{Binding OpenCommand}" Click="OpenButton_Click"/>
+            <Button x:Name="NewButton" Content="New (Control + N)" Command="{Binding NewCommand}" Click="NewButton_Click"/>
+        </ToolBar>
 
     </Grid>
 </Window>

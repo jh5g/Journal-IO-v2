@@ -72,7 +72,7 @@ namespace Journal_IO_v2
             }
             if (contained)
             {
-                Window1 window1 = new Window1("Are you sure you want to overwrite this entry");
+                Window1 window1 = new Window1("Do you want to overwrite this entry");
                 if (window1.ShowDialog() == true)
                 {
                     if (window1.DialogResult == true)
@@ -198,7 +198,7 @@ namespace Journal_IO_v2
         {
             if (this.Title.Substring(this.Title.Length - 1) == "*")
             {
-                Window1 window1 = new Window1("Are you sure you want to close without saving");
+                Window1 window1 = new Window1("Do you want to save without closing?");
                 if (window1.ShowDialog() == true)
                 {
                     if (window1.DialogResult == true)
@@ -213,6 +213,27 @@ namespace Journal_IO_v2
         {
             this.Title = "Journal I/O - " + filename + "*";
         } //ensures knowledge of change to test for requirement to save before closing
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveOver();
+        }
+
+        private void SaveAsButton_Click(object sender, RoutedEventArgs e)
+        {
+            SaveAs();
+        }
+
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            Open();
+        }
+
+        private void NewButton_Click(object sender, RoutedEventArgs e)
+        {
+            New();
+        }
+
         //TODO: Search
     }
 }

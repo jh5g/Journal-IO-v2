@@ -8,7 +8,7 @@
         Title="Confirm" Height="168.846" Width="251.571">
     <Grid>
         <TextBox x:Name="QuestionBox" HorizontalAlignment="Left" Height="51" Margin="0,21,-0.333,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" IsEnabled="False"/>
-        <Button x:Name="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="61" Margin="92,101,0,0" Height="28" Content="Cancel" Click="Cancel_Click"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="61" Margin="92,101,0,0" Height="28" Content="No" Click="Cancel_Click"/>
         <Button x:Name="Confirm" Content="Yes" Margin="12,101,157.667,10.333" Click="Confirm_Click"/>
 
     </Grid>
