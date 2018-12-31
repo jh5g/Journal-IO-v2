@@ -1,8 +1,6 @@
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\Journal-IO-v2.exe.config
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\Journal-IO-v2.exe
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\Journal-IO-v2.pdb
-C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\Newtonsoft.Json.dll
-C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\Newtonsoft.Json.xml
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\MainWindow.g.cs
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\Window1.g.cs
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\App.g.cs
@@ -20,3 +18,5 @@ C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\Journal-IO-v2.pdb
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\Journal-IO-v2.csprojAssemblyReference.cache
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\SearchWIndow.g.cs
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Release\SearchWIndow.baml
+C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\NHotkey.dll
+C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Release\NHotkey.Wpf.dll

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journal_IO_v2"
         mc:Ignorable="d"
-        Title="SearchWIndow" Height="450" Width="800">
+        Title="SearchWIndow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <TextBox x:Name="DateEntry" HorizontalAlignment="Left" Height="23" Margin="52,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextEntry" HorizontalAlignment="Left" Height="23" Margin="400,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

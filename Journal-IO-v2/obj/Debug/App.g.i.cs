@@ -10,6 +10,7 @@
 //------------------------------------------------------------------------------
 
 using Journal_IO_v2;
+using NHotkey.Wpf;
 using System;
 using System.Diagnostics;
 using System.Windows;

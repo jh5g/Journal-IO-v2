@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using System.IO;
+using NHotkey.Wpf;
 
 namespace Journal_IO_v2
 {
@@ -50,6 +51,11 @@ namespace Journal_IO_v2
             InitializeComponent();
             this.Title = "Journal I/O - " + filename;
             this.entries = new List<entry>();
+            HotkeyManager.Current.AddOrReplace("Save", Key.S, ModifierKeys.Control, HotkeySave);
+            HotkeyManager.Current.AddOrReplace("SaveAs", Key.S, ModifierKeys.Control | ModifierKeys.Shift, HotkeySaveAs);
+            HotkeyManager.Current.AddOrReplace("Open", Key.O, ModifierKeys.Control, HotkeyOpen);
+            HotkeyManager.Current.AddOrReplace("New", Key.N, ModifierKeys.Control, HotkeyNew);
+            HotkeyManager.Current.AddOrReplace("Search", Key.F, ModifierKeys.Control, HotkeySearch);
         }
 
         System.Globalization.CultureInfo ukCulture = new System.Globalization.CultureInfo("en-GB");
@@ -255,6 +261,31 @@ namespace Journal_IO_v2
             searchWIndow.entries = entries;
         }
 
-        //TODO: Search
+        private void HotkeySave(object sender, NHotkey.HotkeyEventArgs e)
+        {
+            SaveOver();
+        }
+
+        private void HotkeySaveAs(object sender, NHotkey.HotkeyEventArgs e)
+        {
+            SaveAs();
+        }
+
+        private void HotkeyOpen(object sender, NHotkey.HotkeyEventArgs e)
+        {
+            Open();
+        }
+
+        private void HotkeyNew(object sender, NHotkey.HotkeyEventArgs e)
+        {
+            New();
+        }
+
+        private void HotkeySearch(object sender, NHotkey.HotkeyEventArgs e)
+        {
+            SearchWIndow searchWIndow = new SearchWIndow();
+            searchWIndow.Show();
+            searchWIndow.entries = entries;
+        }
     }
 }

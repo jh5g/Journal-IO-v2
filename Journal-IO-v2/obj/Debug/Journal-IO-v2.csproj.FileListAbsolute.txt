@@ -13,10 +13,10 @@ C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Journal-IO-v2.csproj.Gene
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Journal-IO-v2.csproj.CoreCompileInputs.cache
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Journal-IO-v2.exe
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Journal-IO-v2.pdb
-C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Debug\Newtonsoft.Json.dll
-C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Debug\Newtonsoft.Json.xml
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Journal-IO-v2.csproj.CopyComplete
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Window1.g.cs
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\Window1.baml
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\SearchWIndow.g.cs
 C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\obj\Debug\SearchWIndow.baml
+C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Debug\NHotkey.dll
+C:\nodeSCRIPT\C#\Journal-IO-v2\Journal-IO-v2\bin\Debug\NHotkey.Wpf.dll

@@ -6,29 +6,23 @@
         xmlns:local="clr-namespace:Journal_IO_v2"
         mc:Ignorable="d"
         Title="MainWindow" Height="802.515" Width="1355.639" Loaded="Window_1_Loaded" Closing="Window_1_Closing">
-    <Window.InputBindings>
-        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding SaveCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="O" Command="{Binding OpenCommand}"/>
-        <KeyBinding Modifiers="Ctrl" Key="N" Command="{Binding NewCommand}"/>
-        <KeyBinding Modifiers="Ctrl+Shift" Key="S" Command="{Binding SaveAsCommand}"/>
-    </Window.InputBindings>
     <DockPanel>
-        <Grid Margin="0,0,2.667,-19.667" IsManipulationEnabled="True">
+        <Grid Margin="0,0,2.667,10.333" IsManipulationEnabled="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="139*"/>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="1207*"/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="dateEntry" HorizontalAlignment="Left" Height="23" Margin="10,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" DockPanel.Dock="Left"/>
-            <TextBox x:Name="NewEntryBox" HorizontalAlignment="Left" Height="263" Margin="2.667,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1193" TextChanged="NewEntryBox_TextChanged" Grid.Column="2" SpellCheck.IsEnabled="True" DockPanel.Dock="Right"/>
-            <TextBox x:Name="Output" HorizontalAlignment="Left" Height="440" TextWrapping="Wrap" VerticalAlignment="Top" Width="1193" Margin="2.667,302,0,0" Grid.Column="2" IsReadOnly="True" VerticalScrollBarVisibility="Visible" DockPanel.Dock="Right"/>
+            <TextBox x:Name="dateEntry" HorizontalAlignment="Left" Margin="25,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Left" Height="21" Width="104"/>
+            <TextBox x:Name="NewEntryBox" HorizontalAlignment="Stretch" Height="auto" Margin="2.667,23,10,466" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="auto" TextChanged="NewEntryBox_TextChanged" Grid.Column="2" SpellCheck.IsEnabled="True"/>
+            <TextBox x:Name="Output" HorizontalAlignment="Stretch" Height="auto" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="auto" Margin="2.667,302,10,0" Grid.Column="2" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
             <Button x:Name="AddEntry" Content="Add" HorizontalAlignment="Left" Margin="54,71,0,0" VerticalAlignment="Top" Width="75" Click="AddEntry_Click" Height="20" DockPanel.Dock="Left"/>
             <ToolBar HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="53" Header="File">
-                <Button x:Name="SaveButton" Content="Save (Control + S)" Command="{Binding SaveCommand}" Click="SaveButton_Click"/>
-                <Button x:Name="SaveAsButton" Content="Save As (Control + Shift + S)" Command="{Binding SaveAsCommand}" Click="SaveAsButton_Click"/>
-                <Button x:Name="OpenButton" Content="Open (Control + O)" Command="{Binding OpenCommand}" Click="OpenButton_Click"/>
-                <Button x:Name="NewButton" Content="New (Control + N)" Command="{Binding NewCommand}" Click="NewButton_Click"/>
+                <Button x:Name="SaveButton" Content="Save (Control + S)" Click="SaveButton_Click"/>
+                <Button x:Name="SaveAsButton" Content="Save As (Control + Shift + S)" Click="SaveAsButton_Click"/>
+                <Button x:Name="OpenButton" Content="Open (Control + O)" Click="OpenButton_Click"/>
+                <Button x:Name="NewButton" Content="New (Control + N)" Click="NewButton_Click"/>
                 <Button x:Name="SearchButton" Content="Search (Control +F)" Click="SearchButton_Click"/>
             </ToolBar>
 
