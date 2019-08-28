@@ -45,17 +45,24 @@ namespace Journal_IO_v2
     {
         static string filename = "Untitled";
         public List<entry> entries = new List<entry>();
+        public EntryManager entryManager = new EntryManager(); //only one window of this possible and cannot open again in same session but so what? it allows the carry over of changes in the entry manager
+        public bool unsaved { get; set; }
+        public bool unaddedEntry { get; set; }
 
         public MainWindow() //Prepares for initial use
         {
             InitializeComponent();
             this.Title = "Journal I/O - " + filename;
             this.entries = new List<entry>();
+            this.unsaved = false;
+            this.unaddedEntry = false;
             HotkeyManager.Current.AddOrReplace("Save", Key.S, ModifierKeys.Control, HotkeySave);
             HotkeyManager.Current.AddOrReplace("SaveAs", Key.S, ModifierKeys.Control | ModifierKeys.Shift, HotkeySaveAs);
             HotkeyManager.Current.AddOrReplace("Open", Key.O, ModifierKeys.Control, HotkeyOpen);
             HotkeyManager.Current.AddOrReplace("New", Key.N, ModifierKeys.Control, HotkeyNew);
             HotkeyManager.Current.AddOrReplace("Search", Key.F, ModifierKeys.Control, HotkeySearch);
+            HotkeyManager.Current.AddOrReplace("OpenManager", Key.M, ModifierKeys.Control , HotkeyManagerOpen);
+            HotkeyManager.Current.AddOrReplace("CloseManager", Key.M, ModifierKeys.Control | ModifierKeys.Shift, HotkeyManagerClose);
         }
 
         System.Globalization.CultureInfo ukCulture = new System.Globalization.CultureInfo("en-GB");
@@ -66,7 +73,7 @@ namespace Journal_IO_v2
             Open();
         }
 
-        private void AddNewEntry() //formats info and turns it into entry object, then adds to list ??Does this add a reference to the object will this work
+        private void AddNewEntry() //formats info and turns it into entry object, then adds to list and adds *??Does this add a reference to the object will this work
         {
             entry NewEntry = new entry();
             NewEntry.Entry = NewEntryBox.Text;
@@ -103,8 +110,11 @@ namespace Journal_IO_v2
             else
             {
                 entries.Add(NewEntry);
+                this.unaddedEntry = false;
+                this.unsaved = true;
+                Retitle();
             }
-            
+
         }
 
         public string FormatForOutput() //Turns list into string for output
@@ -131,7 +141,7 @@ namespace Journal_IO_v2
         public List<entry> FormatFromInput(string input)// takes string (from a file) and turns it into a List
         {
             List<entry> EntriesOutput = new List<entry>();
-            string pat = "(.*?) : (.*)";
+            string pat = "(\\d*/\\d*/\\d*) : (.*)";
             Regex r = new Regex(pat, RegexOptions.IgnoreCase);
             Match m = r.Match(input);
             while (m.Success)
@@ -159,7 +169,7 @@ namespace Journal_IO_v2
                 m = m.NextMatch();
             }
             return EntriesOutput;
-            
+
         }
 
         public void SaveAs()//Saves file As
@@ -176,7 +186,8 @@ namespace Journal_IO_v2
                 File.WriteAllText(dialog.FileName, fileText);
                 filename = dialog.FileName;
             }
-            this.Title = "Journal I/O - " + filename;
+            this.unsaved = false;
+            Retitle();
         }
 
         public void SaveOver()//Saves over existing file based on file name
@@ -189,7 +200,8 @@ namespace Journal_IO_v2
             {
                 SaveAs();
             }
-            this.Title = "Journal I/O - " + filename;
+            this.unsaved = false;
+            Retitle();
         }
 
         public void Open()//Opens file as does necessary related actions
@@ -214,6 +226,26 @@ namespace Journal_IO_v2
             Output.Text = "";
         }
 
+        public void Retitle() //updates the title
+        {
+            if (this.unsaved && this.unaddedEntry)
+            {
+                this.Title = "Journal I/O - " + filename + "*§";
+            }
+            else if (unsaved)
+            {
+                this.Title = "Journal I/O - " + filename + "*";
+            }
+            else if (unaddedEntry)
+            {
+                this.Title = "Journal I/O - " + filename + "§";
+            }
+            else
+            {
+                this.Title = "Journal I/O - " + filename;
+            }
+        }
+
         private void Window_1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (this.Title.Substring(this.Title.Length - 1) == "*")
@@ -231,7 +263,8 @@ namespace Journal_IO_v2
 
         private void NewEntryBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.Title = "Journal I/O - " + filename + "*";
+            this.unaddedEntry = true;
+            Retitle();
         } //ensures knowledge of change to test for requirement to save before closing
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -286,6 +319,42 @@ namespace Journal_IO_v2
             SearchWIndow searchWIndow = new SearchWIndow();
             searchWIndow.Show();
             searchWIndow.entries = entries;
+        }
+
+        private void ManageButton_Click(object sender, RoutedEventArgs e)
+        {
+            //public EntryManager entryManager = new EntryManager();
+            entryManager.entries = entries;
+            entryManager.Show();
+        }
+
+        private void ManagerCloseButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            entries = entryManager.entries;
+            Output.Text = FormatForOutput();
+            this.unsaved = true;
+            Retitle();
+            entryManager.closedFromMain = true;
+            entryManager.Close();
+        }
+
+        private void HotkeyManagerOpen(object sender, NHotkey.HotkeyEventArgs e)
+        {
+            //public EntryManager entryManager = new EntryManager();
+            entryManager.entries = entries;
+            entryManager.Show();
+        }
+
+        private void HotkeyManagerClose(object sender, NHotkey.HotkeyEventArgs e)
+        {
+
+            entries = entryManager.entries;
+            Output.Text = FormatForOutput();
+            this.unsaved = true;
+            Retitle();
+            entryManager.closedFromMain = true;
+            entryManager.Close();
         }
     }
 }

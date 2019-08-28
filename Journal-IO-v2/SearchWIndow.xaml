@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Journal_IO_v2"
         mc:Ignorable="d"
-        Title="SearchWIndow" Height="450" Width="800" ResizeMode="CanMinimize">
+        Title="SearchWIndow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="DateEntry" HorizontalAlignment="Left" Height="23" Margin="52,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextEntry" HorizontalAlignment="Left" Height="23" Margin="400,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="SearchButton" Content="Search!" HorizontalAlignment="Left" Margin="644,44,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
-        <Label Content="Search by Date" HorizontalAlignment="Left" Margin="52,18,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <Label Content="Search by Text" HorizontalAlignment="Left" Margin="400,18,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox x:Name="Output" HorizontalAlignment="Left" Height="199" TextWrapping="Wrap" VerticalAlignment="Top" Width="667" Margin="52,106,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="DateEntry" HorizontalAlignment="Left" Height="23" Margin="10,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextEntry" HorizontalAlignment="Left" Height="23" Margin="160,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="SearchButton" Content="Search!" HorizontalAlignment="Left" Margin="303,44,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
+        <Label Content="Search by Date" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Search by Text" HorizontalAlignment="Left" Margin="160,18,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <TextBox x:Name="Output" HorizontalAlignment="Left" Height="332" TextWrapping="Wrap" VerticalAlignment="Top" Width="775" Margin="10,80,0,0" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible"/>
+        <CheckBox x:Name="RegexCheckBox" Content="Search by Regex" HorizontalAlignment="Left" Margin="397,44,0,0" VerticalAlignment="Top" Height="23"/>
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Journal_IO_v2
 {
@@ -45,7 +46,7 @@ namespace Journal_IO_v2
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             String date = DateEntry.Text;
-            String Text = TextEntry.Text;
+            String Text = TextEntry.Text.ToLower();
             filteredEntries = entries.ToList<entry>();
             if (date != "")
             {
@@ -59,13 +60,30 @@ namespace Journal_IO_v2
             }
             if (Text != "")
             {
-                foreach (entry ent in entries)
+                if (RegexCheckBox.IsChecked == true)
                 {
-                    if (!( ent.Entry.Contains(Text)))
+                    string pat = Text;
+                    Regex r = new Regex(pat);
+                    foreach (entry ent in entries)
                     {
-                        filteredEntries.Remove(ent);
+                        Match m = r.Match(ent.Entry);
+                        if (!(m.Success))
+                        {
+                            filteredEntries.Remove(ent);
+                        }
                     }
                 }
+                else
+                {
+                    foreach (entry ent in entries)
+                    {
+                        if (!( ent.Entry.ToLower().Contains(Text)))
+                        {
+                            filteredEntries.Remove(ent);
+                        }
+                    }
+                }
+                
             }
             if (date != "" || Text != "")
             {

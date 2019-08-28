@@ -23,7 +23,9 @@
                 <Button x:Name="SaveAsButton" Content="Save As (Control + Shift + S)" Click="SaveAsButton_Click"/>
                 <Button x:Name="OpenButton" Content="Open (Control + O)" Click="OpenButton_Click"/>
                 <Button x:Name="NewButton" Content="New (Control + N)" Click="NewButton_Click"/>
-                <Button x:Name="SearchButton" Content="Search (Control +F)" Click="SearchButton_Click"/>
+                <Button x:Name="SearchButton" Content="Search (Control + F)" Click="SearchButton_Click"/>
+                <Button x:Name="ManageButton" Content="Open Manager (Control + M)" Click="ManageButton_Click"/>
+                <Button x:Name="ManagerCloseButton" Content="Close Manager (Control + Shift + M)" Click="ManagerCloseButton_Click"/>
             </ToolBar>
 
         </Grid>
